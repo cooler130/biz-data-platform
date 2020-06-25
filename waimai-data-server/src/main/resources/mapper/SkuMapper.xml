@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.platform.dao.SkuMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.platform.entity.Sku" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sku_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="poi_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="msg" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sku_name, price, poi_id, msg
+  </sql>
+
+  <!-- 业务相关 -->
+  <select id="selectSkuIds" resultType="java.lang.Integer">
+    select
+    id
+    from sku
+    where
+    <if test="skuName != null">sku_name like concat('%', #{skuName,jdbcType=VARCHAR}, '%') AND </if>
+    <if test="moreThanPrice != null">price  <![CDATA[ > ]]> #{moreThanPrice,jdbcType=REAL} AND </if>
+    <if test="lessThanPrice != null">price <![CDATA[ <= ]]> #{lessThanPrice,jdbcType=REAL} AND </if>
+    <if test="poiId != null">poi_id = #{poiId,jdbcType=INTEGER} AND </if>
+    1=1
+    <if test="orderBy != null">ORDER BY #{orderBy,jdbcType=VARCHAR}</if>
+    <if test="sort != null"> #{sort,jdbcType=VARCHAR}</if>
+  </select>
+
+  <select id="selectSkus" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from sku
+    where
+    <if test="startId != null">id >= #{startId,jdbcType=INTEGER} AND </if>
+    <if test="skuName != null">sku_name like concat('%', #{skuName,jdbcType=VARCHAR}, '%') AND </if>
+    <if test="moreThanPrice != null">price  <![CDATA[ > ]]> #{moreThanPrice,jdbcType=REAL} AND </if>
+    <if test="lessThanPrice != null">price <![CDATA[ <= ]]> #{lessThanPrice,jdbcType=REAL} AND </if>
+    <if test="poiId != null">poi_id = #{poiId,jdbcType=INTEGER} AND </if>
+    1=1
+    <if test="orderBy != null">ORDER BY #{orderBy,jdbcType=VARCHAR}</if>
+    <if test="sort != null"> #{sort,jdbcType=VARCHAR}</if>
+    <if test="count != null"> limit #{count,jdbcType=INTEGER}</if>
+  </select>
+
+  <select id="getSkusByIds" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from sku
+    where id IN
+    <foreach collection="skuIds" item="id" open="(" separator="," close=")">
+        #{id,jdbcType=INTEGER}
+    </foreach>
+  </select>
+
+</mapper>

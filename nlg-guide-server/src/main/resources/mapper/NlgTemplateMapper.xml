@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.nlg.dao.NlgTemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.nlg.entity.NlgTemplate" >
+    <constructor >
+      <arg column="scene_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="dm_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="action_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="transform_intent_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="intent_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="param_kvs" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="enable" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="nlg_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="topic_word" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="theme_word" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="nlg_template" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fixed_guide" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="ext_info" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    scene_id, dm_name, action_name, transform_intent_name, intent_name, param_kvs, enable, nlg_id, topic_word, theme_word, nlg_template, fixed_guide, ext_info
+  </sql>
+
+  <!-- 业务相关 -->
+  <select id="getNlgSentence" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from v_scene_nlg
+    where
+    dm_name = #{dmName,jdbcType=VARCHAR} and
+    action_name = #{actionName,jdbcType=VARCHAR} and
+    <if test="transformIntentName != 'none'">transform_intent_name = #{transformIntentName,jdbcType=VARCHAR} and </if>
+    <if test="intentName != 'none'">intent_name = #{intentName,jdbcType=VARCHAR} and </if>
+    topic_word = #{topicWord,jdbcType=VARCHAR} and
+    theme_word = #{themeWord,jdbcType=VARCHAR} and
+    enable = 1
+  </select>
+</mapper>

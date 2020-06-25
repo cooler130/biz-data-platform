@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.nlg.dao.GuideOptionMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.nlg.entity.GuideOption" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="nlg_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="option_num" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="option_sentence" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="option_ext_info" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="domain_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="task_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="intent_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="slot_kvs" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="enable" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="msg" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nlg_id, option_num, option_sentence, option_ext_info, domain_name, task_name, 
+    intent_name, slot_kvs, enable, msg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from guide_option
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from guide_option
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cooler.ai.nlg.entity.GuideOption" >
+    insert into guide_option (id, nlg_id, option_num, 
+      option_sentence, option_ext_info, domain_name, 
+      task_name, intent_name, slot_kvs, 
+      enable, msg)
+    values (#{id,jdbcType=INTEGER}, #{nlgId,jdbcType=INTEGER}, #{optionNum,jdbcType=TINYINT}, 
+      #{optionSentence,jdbcType=VARCHAR}, #{optionExtInfo,jdbcType=VARCHAR}, #{domainName,jdbcType=VARCHAR}, 
+      #{taskName,jdbcType=VARCHAR}, #{intentName,jdbcType=VARCHAR}, #{slotKvs,jdbcType=VARCHAR}, 
+      #{enable,jdbcType=TINYINT}, #{msg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cooler.ai.nlg.entity.GuideOption" >
+    insert into guide_option
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nlgId != null" >
+        nlg_id,
+      </if>
+      <if test="optionNum != null" >
+        option_num,
+      </if>
+      <if test="optionSentence != null" >
+        option_sentence,
+      </if>
+      <if test="optionExtInfo != null" >
+        option_ext_info,
+      </if>
+      <if test="domainName != null" >
+        domain_name,
+      </if>
+      <if test="taskName != null" >
+        task_name,
+      </if>
+      <if test="intentName != null" >
+        intent_name,
+      </if>
+      <if test="slotKvs != null" >
+        slot_kvs,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nlgId != null" >
+        #{nlgId,jdbcType=INTEGER},
+      </if>
+      <if test="optionNum != null" >
+        #{optionNum,jdbcType=TINYINT},
+      </if>
+      <if test="optionSentence != null" >
+        #{optionSentence,jdbcType=VARCHAR},
+      </if>
+      <if test="optionExtInfo != null" >
+        #{optionExtInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="domainName != null" >
+        #{domainName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskName != null" >
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="intentName != null" >
+        #{intentName,jdbcType=VARCHAR},
+      </if>
+      <if test="slotKvs != null" >
+        #{slotKvs,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=TINYINT},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cooler.ai.nlg.entity.GuideOption" >
+    update guide_option
+    <set >
+      <if test="nlgId != null" >
+        nlg_id = #{nlgId,jdbcType=INTEGER},
+      </if>
+      <if test="optionNum != null" >
+        option_num = #{optionNum,jdbcType=TINYINT},
+      </if>
+      <if test="optionSentence != null" >
+        option_sentence = #{optionSentence,jdbcType=VARCHAR},
+      </if>
+      <if test="optionExtInfo != null" >
+        option_ext_info = #{optionExtInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="domainName != null" >
+        domain_name = #{domainName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskName != null" >
+        task_name = #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="intentName != null" >
+        intent_name = #{intentName,jdbcType=VARCHAR},
+      </if>
+      <if test="slotKvs != null" >
+        slot_kvs = #{slotKvs,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=TINYINT},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cooler.ai.nlg.entity.GuideOption" >
+    update guide_option
+    set nlg_id = #{nlgId,jdbcType=INTEGER},
+      option_num = #{optionNum,jdbcType=TINYINT},
+      option_sentence = #{optionSentence,jdbcType=VARCHAR},
+      option_ext_info = #{optionExtInfo,jdbcType=VARCHAR},
+      domain_name = #{domainName,jdbcType=VARCHAR},
+      task_name = #{taskName,jdbcType=VARCHAR},
+      intent_name = #{intentName,jdbcType=VARCHAR},
+      slot_kvs = #{slotKvs,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=TINYINT},
+      msg = #{msg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!-- 业务相关 -->
+
+  <select id="getGuideOptions" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from guide_option
+    where nlg_id = #{nlgId,jdbcType=INTEGER}
+  </select>
+
+</mapper>

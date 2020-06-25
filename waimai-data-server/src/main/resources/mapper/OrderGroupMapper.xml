@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.platform.dao.OrderGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.platform.entity.OrderGroup" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="total_price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="sku_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="address_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_timestamp" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="state" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pay_timestamp" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="msg" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_code, user_id, user_name, total_price, sku_count, address_id, address, 
+    create_timestamp, state, pay_timestamp, msg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cooler.ai.platform.entity.OrderGroup" >
+    insert into order_group (id, order_code, user_id, 
+      user_name, total_price, sku_count, 
+      address_id, address, create_timestamp, 
+      state, pay_timestamp, msg
+      )
+    values (#{id,jdbcType=INTEGER}, #{orderCode,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{totalPrice,jdbcType=REAL}, #{skuCount,jdbcType=INTEGER}, 
+      #{addressId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{createTimestamp,jdbcType=BIGINT}, 
+      #{state,jdbcType=INTEGER}, #{payTimestamp,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cooler.ai.platform.entity.OrderGroup" >
+    insert into order_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="skuCount != null" >
+        sku_count,
+      </if>
+      <if test="addressId != null" >
+        address_id,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="createTimestamp != null" >
+        create_timestamp,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="payTimestamp != null" >
+        pay_timestamp,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="skuCount != null" >
+        #{skuCount,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null" >
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createTimestamp != null" >
+        #{createTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="payTimestamp != null" >
+        #{payTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cooler.ai.platform.entity.OrderGroup" >
+    update order_group
+    <set >
+      <if test="orderCode != null" >
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="skuCount != null" >
+        sku_count = #{skuCount,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null" >
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createTimestamp != null" >
+        create_timestamp = #{createTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="payTimestamp != null" >
+        pay_timestamp = #{payTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cooler.ai.platform.entity.OrderGroup" >
+    update order_group
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=REAL},
+      sku_count = #{skuCount,jdbcType=INTEGER},
+      address_id = #{addressId,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      create_timestamp = #{createTimestamp,jdbcType=BIGINT},
+      state = #{state,jdbcType=INTEGER},
+      pay_timestamp = #{payTimestamp,jdbcType=BIGINT},
+      msg = #{msg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!-- 业务相关 -->
+  <select id="selectOrderGroupIds" resultType="java.lang.Integer" >
+    select
+    id
+    from order_group
+    where user_id = #{userId,jdbcType=VARCHAR}
+    <if test="state != -1"> and state = #{state,jdbcType=INTEGER}</if>
+  </select>
+
+  <select id="selectOrderGroups" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from order_group
+    where user_id = #{userId,jdbcType=VARCHAR}
+    <if test="state != -1"> and state = #{state,jdbcType=INTEGER}</if>
+    and id >= #{startId,jdbcType=INTEGER}
+    order by pay_timestamp desc limit #{count,jdbcType=INTEGER}
+  </select>
+
+  <select id="getOrderByUserId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from order_group
+    where user_id = #{userId,jdbcType=VARCHAR}
+    <if test="state != -1"> and state = #{state,jdbcType=INTEGER}</if>
+  </select>
+
+  <select id="getOrderById" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from order_group
+    where id = #{orderId,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="saveOrder" parameterType="com.cooler.ai.platform.entity.OrderGroup" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    insert into order_group (order_code, user_id,
+      user_name, total_price, sku_count,
+      address_id, address, create_timestamp,
+      state, pay_timestamp, msg
+      )
+    values (#{orderCode,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
+      #{userName,jdbcType=VARCHAR}, #{totalPrice,jdbcType=REAL}, #{skuCount,jdbcType=INTEGER},
+      #{addressId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{createTimestamp,jdbcType=BIGINT},
+      #{state,jdbcType=INTEGER}, #{payTimestamp,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <update id="updateOrder" parameterType="com.cooler.ai.platform.entity.OrderGroup" >
+
+    <selectKey keyProperty='id' resultType='int' order='AFTER'/>
+
+    update order_group
+    <set >
+      <if test="orderCode != null" >
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="skuCount != null" >
+        sku_count = #{skuCount,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null" >
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createTimestamp != null" >
+        create_timestamp = #{createTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="payTimestamp != null" >
+        pay_timestamp = #{payTimestamp,jdbcType=BIGINT},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

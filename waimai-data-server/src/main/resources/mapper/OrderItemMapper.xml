@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.platform.dao.OrderItemMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.platform.entity.OrderItem" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="order_item_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="order_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sku_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="sku_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="poi_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="poi_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="total_price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="msg" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="enable" jdbcType="TINYINT" javaType="java.lang.Byte" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_item_code, order_id, user_id, user_name, sku_id, sku_name, poi_id, poi_name, 
+    count, price, total_price, msg, enable
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cooler.ai.platform.entity.OrderItem" >
+    insert into order_item (id, order_item_code, order_id, 
+      user_id, user_name, sku_id, 
+      sku_name, poi_id, poi_name, 
+      count, price, total_price, 
+      msg, enable)
+    values (#{id,jdbcType=INTEGER}, #{orderItemCode,jdbcType=VARCHAR}, #{orderId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{skuId,jdbcType=INTEGER}, 
+      #{skuName,jdbcType=VARCHAR}, #{poiId,jdbcType=INTEGER}, #{poiName,jdbcType=VARCHAR}, 
+      #{count,jdbcType=INTEGER}, #{price,jdbcType=REAL}, #{totalPrice,jdbcType=REAL}, 
+      #{msg,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cooler.ai.platform.entity.OrderItem" >
+    insert into order_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderItemCode != null" >
+        order_item_code,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="skuId != null" >
+        sku_id,
+      </if>
+      <if test="skuName != null" >
+        sku_name,
+      </if>
+      <if test="poiId != null" >
+        poi_id,
+      </if>
+      <if test="poiName != null" >
+        poi_name,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderItemCode != null" >
+        #{orderItemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="skuId != null" >
+        #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuName != null" >
+        #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="poiId != null" >
+        #{poiId,jdbcType=INTEGER},
+      </if>
+      <if test="poiName != null" >
+        #{poiName,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cooler.ai.platform.entity.OrderItem" >
+    update order_item
+    <set >
+      <if test="orderItemCode != null" >
+        order_item_code = #{orderItemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="skuId != null" >
+        sku_id = #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuName != null" >
+        sku_name = #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="poiId != null" >
+        poi_id = #{poiId,jdbcType=INTEGER},
+      </if>
+      <if test="poiName != null" >
+        poi_name = #{poiName,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cooler.ai.platform.entity.OrderItem" >
+    update order_item
+    set order_item_code = #{orderItemCode,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      sku_id = #{skuId,jdbcType=INTEGER},
+      sku_name = #{skuName,jdbcType=VARCHAR},
+      poi_id = #{poiId,jdbcType=INTEGER},
+      poi_name = #{poiName,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL},
+      total_price = #{totalPrice,jdbcType=REAL},
+      msg = #{msg,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!-- 业务相关 -->
+  <select id="getOrderItemsByOrderIds" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from order_item
+    where order_id IN
+    <foreach collection="orderIds" item="orderId" open="(" separator="," close=")">
+      #{orderId,jdbcType=INTEGER}
+    </foreach>
+  </select>
+
+  <insert id="save" parameterType="com.cooler.ai.platform.entity.OrderItem" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    insert into order_item (order_item_code, order_id,
+      user_id, user_name, sku_id,
+      sku_name, poi_id, poi_name,
+      count, price, total_price,
+      msg, enable)
+    values (#{orderItemCode,jdbcType=VARCHAR}, #{orderId,jdbcType=INTEGER},
+      #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{skuId,jdbcType=INTEGER},
+      #{skuName,jdbcType=VARCHAR}, #{poiId,jdbcType=INTEGER}, #{poiName,jdbcType=VARCHAR},
+      #{count,jdbcType=INTEGER}, #{price,jdbcType=REAL}, #{totalPrice,jdbcType=REAL},
+      #{msg,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT})
+  </insert>
+
+  <select id="getOrderItemsByUserIdOrderIds" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from order_item
+    where user_id = #{userId,jdbcType=VARCHAR} and order_id IN
+    <foreach collection="orderIds" item="orderId" open="(" separator="," close=")">
+      #{orderId,jdbcType=INTEGER}
+    </foreach>
+  </select>
+
+</mapper>

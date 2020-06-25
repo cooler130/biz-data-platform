@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.platform.dao.AddressMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.platform.entity.Address" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="address_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="phone_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_default" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="enable" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="msg" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, user_name, address, address_num, phone_num, is_default, enable, msg
+  </sql>
+
+  <!-- 业务相关 -->
+
+  <select id="getAddressesByUserId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from address
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+</mapper>

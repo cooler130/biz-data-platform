@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cooler.ai.platform.dao.PoiMapper" >
+  <resultMap id="BaseResultMap" type="com.cooler.ai.platform.entity.Poi" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="poi_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="brand" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="avg_price" jdbcType="FLOAT" javaType="java.lang.Float" />
+      <arg column="msg" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, poi_name, brand, avg_price, msg
+  </sql>
+
+  <!-- 业务相关 -->
+  <select id="selectPois" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from poi
+    where
+    <if test="startId != null">id > #{startId,jdbcType=INTEGER} AND </if>
+    <if test="poiName != null">poi_name like concat('%', #{poiName,jdbcType=VARCHAR}, '%') AND </if>
+    <if test="brand != null">brand like concat('%', #{brand,jdbcType=VARCHAR}, '%') AND </if>
+    1=1
+    <if test="orderBy != null">ORDER BY #{orderBy,jdbcType=VARCHAR} </if>
+    <if test="sort != null"> #{sort,jdbcType=VARCHAR}</if>
+    <if test="count != null"> limit #{count,jdbcType=INTEGER}</if>
+  </select>
+
+  <select id="selectPoiById" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from poi
+    where id = #{poiId,jdbcType=INTEGER}
+  </select>
+</mapper>
