@@ -11,12 +11,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.cooler.ai.platform</groupId>
-  <artifactId>waimai-data-server</artifactId>
+  <artifactId>burouter-data-server</artifactId>
   <version>2.0-SNAPSHOT</version>
+
   <packaging>jar</packaging>
 
-
-  <name>waimai-data-server</name>
+  <name>router-data-server</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -63,8 +63,8 @@
   <dependencies>
     <dependency>
       <groupId>com.cooler.ai.platform</groupId>
-      <artifactId>waimai-data-protocol</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <artifactId>burouter-data-protocol</artifactId>
+      <version>2.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>

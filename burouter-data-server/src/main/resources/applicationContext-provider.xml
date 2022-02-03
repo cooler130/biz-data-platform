@@ -8,14 +8,14 @@
     <!--<dubbo:application name="biz-data-server"/>-->
 
     <!--dubbo协议默认配置，线程池为fixed，默认100，端口port外部配置（properties文件）-->
-    <dubbo:protocol id="waimai-biz" name="waimai-biz" serialization="hessian2"
+    <dubbo:protocol id="dubbo" name="dubbo" serialization="hessian2"
                     threadpool="fixed"
                     threads="300"
                     accepts="500"
                     accesslog="${log_dir}/access.log"/>
 
     <!--提供方的应用名-->
-    <dubbo:application name="biz-data-server">
+    <dubbo:application name="buRouter-data-server">
         <dubbo:parameter key="qos.enable" value="true" />
         <dubbo:parameter key="qos.accept.foreign.ip" value="false" />
         <dubbo:parameter key="qos.port" value="11111" />
@@ -24,7 +24,7 @@
     <dubbo:registry address="${zookeeper_address}"/>
     <!--<dubbo:registry address="zookeeper://192.168.10.20:2181?backup=192.168.10.21:2181,192.168.10.22:2181"/>-->
 
-    <dubbo:service interface="com.cooler.ai.platform.facade.BizDataFacade" ref="bizDataFacade" group="biz-data"
+    <dubbo:service interface="com.cooler.ai.platform.facade.BuRouterDataFacade" ref="buRouterDataFacade" group="buRouter-data"
                    protocol="dubbo"
                    version="1.0-SNAPSHOT"
                    timeout="20000"
