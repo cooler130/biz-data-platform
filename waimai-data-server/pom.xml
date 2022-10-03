@@ -64,7 +64,7 @@
     <dependency>
       <groupId>com.cooler.ai.platform</groupId>
       <artifactId>waimai-data-protocol</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>2.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>
