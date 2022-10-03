@@ -1,11 +1,5 @@
 package com.cooler.ai.platform.model;
 
-/**
- * @Author zhangsheng
- * @Description
- * @Date 2019/11/28
- **/
-
 public class WaimaiConstant {
 
     public static final String POI_NAME = "poi_name";

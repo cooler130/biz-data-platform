@@ -1,11 +1,5 @@
 package com.cooler.ai.nlg;
 
-/**
- * @Author zhangsheng
- * @Description
- * @Date 2019/12/13
- **/
-
 public class NlgConstant {
 //    public static final int FIRST = 0;
 //    public static final int RANDOM = 1;

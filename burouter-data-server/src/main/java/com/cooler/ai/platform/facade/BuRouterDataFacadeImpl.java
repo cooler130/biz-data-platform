@@ -5,11 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-/**
- * @Author zhangsheng
- * @Description
- * @Date 2019/9/30
- **/
 @Component("buRouterDataFacade")
 public class BuRouterDataFacadeImpl implements BuRouterDataFacade {
 
@@ -24,12 +19,12 @@ public class BuRouterDataFacadeImpl implements BuRouterDataFacade {
     }
 
     @Override
-    public List<OrderDataInfo> getOrderDatas(String userId, String sentence, TQDataInfo fixedTqDataInfo) {
+    public List<Order2DataInfo> getOrderDatas(String userId, String sentence, TQDataInfo fixedTqDataInfo) {
         //todo：通过多方面数据，得到带分值的订单数据
-        OrderDataInfo orderDataInfo1 = new OrderDataInfo("order-10001", "李先生牛肉面套餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.85f);
-        OrderDataInfo orderDataInfo2 = new OrderDataInfo("order-10002", "云南米线套餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.84f);
-        OrderDataInfo orderDataInfo3 = new OrderDataInfo("order-10003", "大董状元餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.83f);
-        return Arrays.asList(orderDataInfo1, orderDataInfo2, orderDataInfo3);
+        Order2DataInfo order2DataInfo1 = new Order2DataInfo("order-10001", "李先生牛肉面套餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.85f);
+        Order2DataInfo order2DataInfo2 = new Order2DataInfo("order-10002", "云南米线套餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.84f);
+        Order2DataInfo order2DataInfo3 = new Order2DataInfo("order-10003", "大董状元餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.83f);
+        return Arrays.asList(order2DataInfo1, order2DataInfo2, order2DataInfo3);
     }
 
     @Override
@@ -42,7 +37,7 @@ public class BuRouterDataFacadeImpl implements BuRouterDataFacade {
     }
 
     @Override
-    public List<BuDataInfo> getBuDatas(String sentence, TQDataInfo fixedTqDataInfo, OrderDataInfo fixedOrderDataInfo, List<BuDataInfo> deletedBuDataInfos) {
+    public List<BuDataInfo> getBuDatas(String sentence, TQDataInfo fixedTqDataInfo, Order2DataInfo fixedOrder2DataInfo, List<BuDataInfo> deletedBuDataInfos) {
         //todo：通过多方面数据，得到带分值的业务数据
 
         if(sentence.equals("都不是")){

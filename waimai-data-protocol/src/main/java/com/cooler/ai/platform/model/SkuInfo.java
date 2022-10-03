@@ -1,7 +1,14 @@
 package com.cooler.ai.platform.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class SkuInfo implements Serializable {
     private Integer id;
 
@@ -13,55 +20,4 @@ public class SkuInfo implements Serializable {
 
     private String msg;
 
-    public SkuInfo(Integer id, String skuName, Float price, Integer poiId, String msg) {
-        this.id = id;
-        this.skuName = skuName;
-        this.price = price;
-        this.poiId = poiId;
-        this.msg = msg;
-    }
-
-    public SkuInfo() {
-        super();
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getSkuName() {
-        return skuName;
-    }
-
-    public void setSkuName(String skuName) {
-        this.skuName = skuName == null ? null : skuName.trim();
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    public Integer getPoiId() {
-        return poiId;
-    }
-
-    public void setPoiId(Integer poiId) {
-        this.poiId = poiId;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg == null ? null : msg.trim();
-    }
 }

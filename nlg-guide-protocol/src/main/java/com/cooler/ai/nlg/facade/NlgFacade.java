@@ -7,12 +7,6 @@ import com.cooler.ai.nlg.entity.NlgTemplateInfo;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Author zhangsheng
- * @Description
- * @Date 2019/12/12
- **/
-
 public interface NlgFacade {
 
     /**

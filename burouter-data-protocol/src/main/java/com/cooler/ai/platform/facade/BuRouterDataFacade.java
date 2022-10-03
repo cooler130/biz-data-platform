@@ -1,12 +1,8 @@
 package com.cooler.ai.platform.facade;
 
 import com.cooler.ai.platform.model.*;
-
 import java.util.List;
 
-/**
- * Created by zhangsheng on 2019/9/30.
- */
 public interface BuRouterDataFacade {
 
     /**
@@ -23,7 +19,7 @@ public interface BuRouterDataFacade {
      * @param fixedTqDataInfo
      * @return
      */
-    List<OrderDataInfo> getOrderDatas(String userId, String sentence, TQDataInfo fixedTqDataInfo);
+    List<Order2DataInfo> getOrderDatas(String userId, String sentence, TQDataInfo fixedTqDataInfo);
 
     /**
      * 为userId的用户获取初始的默认的业务集合
@@ -37,9 +33,9 @@ public interface BuRouterDataFacade {
      * 通过原句、已确认标准问、已确认订单来获取业务
      * @param sentence
      * @param fixedTqDataInfo
-     * @param fixedOrderDataInfo
+     * @param fixedOrder2DataInfo
      * @return
      */
-    List<BuDataInfo> getBuDatas(String sentence, TQDataInfo fixedTqDataInfo, OrderDataInfo fixedOrderDataInfo, List<BuDataInfo> askedBuDataInfos);
+    List<BuDataInfo> getBuDatas(String sentence, TQDataInfo fixedTqDataInfo, Order2DataInfo fixedOrder2DataInfo, List<BuDataInfo> askedBuDataInfos);
 
 }
