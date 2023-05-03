@@ -2,8 +2,7 @@ package com.cooler.ai.platform.service.impl;
 
 import com.cooler.ai.platform.dao.OrderGroupMapper;
 import com.cooler.ai.platform.entity.OrderGroup;
-import com.cooler.ai.platform.model.OrderDataInfo;
-import com.cooler.ai.platform.model.OrderGroupInfo;
+import com.cooler.ai.burouter.OrderGroupInfo;
 import com.cooler.ai.platform.service.OrderGroupService;
 import org.springframework.stereotype.Service;
 

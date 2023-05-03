@@ -1,6 +1,6 @@
 package com.cooler.ai.platform.service;
 
-import com.cooler.ai.platform.model.OrderItemInfo;
+import com.cooler.ai.burouter.OrderItemInfo;
 
 import java.util.List;
 import java.util.Set;

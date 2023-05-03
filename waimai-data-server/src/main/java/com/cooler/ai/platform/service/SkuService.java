@@ -1,6 +1,6 @@
 package com.cooler.ai.platform.service;
 
-import com.cooler.ai.platform.model.SkuInfo;
+import com.cooler.ai.burouter.SkuInfo;
 import java.util.List;
 import java.util.Set;
 

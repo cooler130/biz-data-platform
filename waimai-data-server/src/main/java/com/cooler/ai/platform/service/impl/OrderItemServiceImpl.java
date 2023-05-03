@@ -2,7 +2,7 @@ package com.cooler.ai.platform.service.impl;
 
 import com.cooler.ai.platform.dao.OrderItemMapper;
 import com.cooler.ai.platform.entity.OrderItem;
-import com.cooler.ai.platform.model.OrderItemInfo;
+import com.cooler.ai.burouter.OrderItemInfo;
 import com.cooler.ai.platform.service.OrderItemService;
 import org.springframework.stereotype.Service;
 

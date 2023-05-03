@@ -2,7 +2,7 @@ package com.cooler.ai.platform.service.impl;
 
 import com.cooler.ai.platform.dao.SkuMapper;
 import com.cooler.ai.platform.entity.Sku;
-import com.cooler.ai.platform.model.SkuInfo;
+import com.cooler.ai.burouter.SkuInfo;
 import com.cooler.ai.platform.service.SkuService;
 import org.springframework.stereotype.Service;
 

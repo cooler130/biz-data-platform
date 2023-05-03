@@ -1,6 +1,6 @@
 package com.cooler.ai.platform.service;
 
-import com.cooler.ai.platform.model.OrderGroupInfo;
+import com.cooler.ai.burouter.OrderGroupInfo;
 
 import java.util.List;
 

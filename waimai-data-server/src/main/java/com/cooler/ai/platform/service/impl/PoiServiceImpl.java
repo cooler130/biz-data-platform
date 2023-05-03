@@ -2,7 +2,7 @@ package com.cooler.ai.platform.service.impl;
 
 import com.cooler.ai.platform.dao.PoiMapper;
 import com.cooler.ai.platform.entity.Poi;
-import com.cooler.ai.platform.model.PoiInfo;
+import com.cooler.ai.burouter.PoiInfo;
 import com.cooler.ai.platform.service.PoiService;
 import org.springframework.stereotype.Service;
 

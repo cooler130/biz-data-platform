@@ -2,7 +2,7 @@ package com.cooler.ai.platform.service.impl;
 
 import com.cooler.ai.platform.dao.AddressMapper;
 import com.cooler.ai.platform.entity.Address;
-import com.cooler.ai.platform.model.AddressInfo;
+import com.cooler.ai.burouter.AddressInfo;
 import com.cooler.ai.platform.service.AddressService;
 import org.springframework.stereotype.Service;
 

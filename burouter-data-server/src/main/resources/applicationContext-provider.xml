@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <!--&lt;!&ndash;提供方的应用名&ndash;&gt;-->
-    <!--<dubbo:application name="biz-data-server"/>-->
+    <!--提供方的应用名-->
+    <!--<dubbo:application name="burouter-data-server"/>-->
 
     <!--dubbo协议默认配置，线程池为fixed，默认100，端口port外部配置（properties文件）-->
     <dubbo:protocol id="dubbo" name="dubbo" serialization="hessian2"

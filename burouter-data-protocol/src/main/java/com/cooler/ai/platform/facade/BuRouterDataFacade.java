@@ -1,6 +1,8 @@
 package com.cooler.ai.platform.facade;
 
-import com.cooler.ai.platform.model.*;
+import com.cooler.ai.burouter.BuDataInfo;
+import com.cooler.ai.burouter.OrderDataInfo;
+import com.cooler.ai.burouter.TQDataInfo;
 
 import java.util.List;
 

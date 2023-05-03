@@ -1,6 +1,9 @@
 package com.cooler.ai.platform.facade;
 
-import com.cooler.ai.platform.model.*;
+import com.cooler.ai.burouter.BuDataInfo;
+import com.cooler.ai.burouter.OrderDataInfo;
+import com.cooler.ai.burouter.TQDataInfo;
+
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -29,7 +32,8 @@ public class BuRouterDataFacadeImpl implements BuRouterDataFacade {
         OrderDataInfo orderDataInfo1 = new OrderDataInfo("order-10001", "李先生牛肉面套餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.85f);
         OrderDataInfo orderDataInfo2 = new OrderDataInfo("order-10002", "云南米线套餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.84f);
         OrderDataInfo orderDataInfo3 = new OrderDataInfo("order-10003", "大董状元餐", "User-10342", Arrays.asList("你好", "我的红包怎么用不了啊？", "不是"), 0.83f);
-        return Arrays.asList(orderDataInfo1, orderDataInfo2, orderDataInfo3);
+        List<OrderDataInfo> orderDataInfos = Arrays.asList(orderDataInfo1, orderDataInfo2, orderDataInfo3);
+        return orderDataInfos;
     }
 
     @Override

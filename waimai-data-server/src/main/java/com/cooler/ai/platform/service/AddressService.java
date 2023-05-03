@@ -1,6 +1,6 @@
 package com.cooler.ai.platform.service;
 
-import com.cooler.ai.platform.model.AddressInfo;
+import com.cooler.ai.burouter.AddressInfo;
 
 import java.util.List;
 

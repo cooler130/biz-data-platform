@@ -1,6 +1,6 @@
 package com.cooler.ai.platform.facade;
 
-import com.cooler.ai.platform.model.*;
+import com.cooler.ai.burouter.*;
 
 import java.util.List;
 import java.util.Map;

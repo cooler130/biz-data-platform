@@ -11,12 +11,17 @@
 	<description>Demo project for Spring Boot</description>
 
 	<modules>
+
+		<module>nlu-data-protocol</module>
 		<module>burouter-data-protocol</module>
-		<module>nlg-guide-server</module>
 		<module>nlg-guide-protocol</module>
-		<module>burouter-data-server</module>
 		<module>waimai-data-protocol</module>
+
+		<module>burouter-data-server</module>
+		<module>burouter2-data-server</module>
+		<module>nlg-guide-server</module>
 		<module>waimai-data-server</module>
+
 	</modules>
 
 
